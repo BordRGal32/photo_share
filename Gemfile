@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rghost'
-
+gem 'bcrypt'
 
 group :development do
   gem 'better_errors'

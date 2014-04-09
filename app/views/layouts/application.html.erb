@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container" >
+<%= flash[:alert] %>
+<%= flash[:notice] %>
 
+  <div id="user_header">
+    <% if current_user %>
+      Signed In As <%= current_user.name %>
+      <%= link_to 'Logout', logout_path %>
+    <% else %>
+      <%= link_to 'Sign Up', signup_path %> or
+      <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>
 <%= yield %>
 
+</div>
 </body>
 </html>

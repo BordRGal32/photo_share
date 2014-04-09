@@ -4,6 +4,7 @@ validates :name, :uniqueness => true
 
 has_many :photos
 has_many :tags
+has_secure_password
 
 
 end
