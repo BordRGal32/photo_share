@@ -12,7 +12,8 @@
 
 
 <% @user.photos.each do |photo| %>
-  <%= image_tag photo.image.url %>
+  <%= image_tag photo.image.url(:medium) %><br>
+  <i><%= photo.name%></i>
 <% end %>
 
 <hr>
