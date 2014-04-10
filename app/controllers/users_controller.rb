@@ -38,6 +38,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "User Account Deleted"
+    redirect_to users_path
+  end
+
   private
 
   def user_params
