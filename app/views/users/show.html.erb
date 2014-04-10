@@ -13,7 +13,7 @@
 
 <% @user.photos.each do |photo| %>
   <%= image_tag photo.image.url(:medium) %><br>
-  <i><%= photo.name%></i>
+  <%= link_to "#{photo.name}", photo_path(photo) %>
 <% end %>
 
 <hr>

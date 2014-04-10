@@ -4,7 +4,7 @@ PhotoShare::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :sessions, :except => [:edit]
-  resources :users, :except => [:index]
+  resources :users
   resources :photos
   resources :tags
   root :to => 'sessions#new'

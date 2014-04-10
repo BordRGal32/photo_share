@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    @user = current_user
   end
 
   def create
@@ -20,7 +21,14 @@ class PhotosController < ApplicationController
 
   def show
     @user = current_user
-    @photos = @user.photos
+    @photo = Photo.find(params[:id])
+  end
+
+  def destroy
+    @user = current_user
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to user_path(@user)
   end
 
   private

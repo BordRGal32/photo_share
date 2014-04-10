@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-before_filter :authorize, only: [:update, :show, :edit, :destroy]
+#before_filter :authorize, only: [:update, :show, :edit, :destroy]
   def index
-    @user = current_user
+    @users = User.all
   end
 
   def new
@@ -41,6 +41,7 @@ before_filter :authorize, only: [:update, :show, :edit, :destroy]
 
   def destroy
     @user = User.find(params[:id])
+    session[:user_id] = nil
     @user.destroy
     flash[:notice] = "User Account Deleted"
     redirect_to users_path

@@ -1,2 +1,11 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<h1><%= @photo.name %></h1>
+
+<%= image_tag @photo.image.url %>
+
+<nav class="navbar navbar-fixed-buttom" role="navigation">
+
+  <%= link_to "Delete Photo", photo_path(@photo), :class => 'navbar-brand',
+                                                      :data =>
+                                                      {:confirm => "You sure?",
+                                                       :method => "delete"} %>
+</nav>
