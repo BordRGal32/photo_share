@@ -5,10 +5,11 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :tags
   has_secure_password
-  has_attached_file :avatar
+  has_attached_file :avatar, :styles =>{:thumb => "100x100>"}
   validates_attachment_content_type :avatar,
                                     :content_type => /^image\/(png|gif|jpeg)/,
                                     :message => 'only (png/gif/jpeg) images'
+
 
 
 end
