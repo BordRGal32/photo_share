@@ -1,8 +1,4 @@
 require 'spec_helper'
-require 'pry'
-
-
-
 
 feature "creates a new user" do
   it 'creates a new user' do
@@ -33,6 +29,7 @@ end
 describe 'edit a user' do
   it 'edits a current user' do
     user = FactoryGirl.create(:user)
+    sign_in
     visit edit_user_path(user)
     fill_in :user_name, :with => "New Name"
     click_button "Update User"
@@ -43,13 +40,12 @@ end
 feature 'user deletes their account' do
   it 'signs a user in and lets them delete their account' do
     user = FactoryGirl.create(:user)
-
+    sign_in
     visit user_path(user)
     click_link "Deactivate Account"
     page.should have_content "User Account Deleted"
   end
 end
-
 
 
 
