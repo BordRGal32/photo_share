@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rghost'
 gem 'bcrypt'
+gem 'database_cleaner'
 
 
 group :development do
@@ -26,6 +27,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :test do

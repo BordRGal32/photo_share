@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'pry'
 
 
+
+
 feature "creates a new user" do
   it 'creates a new user' do
     visit new_user_path
@@ -13,29 +15,34 @@ feature "creates a new user" do
   end
 end
 
-describe "the signin process", :type => :feature do
+feature "the signin process" do
   before :each do
     User.create(:name => 'username', :password => 'password', :password_confirmation => 'password')
   end
 
   it "signs me in" do
-      visit '/sessions/new'
-      fill_in :name, :with => 'username'
-      fill_in :password, :with => 'password'
-      click_button 'Log In'
-      expect(page).to have_content 'Logged in!'
+    visit '/sessions/new'
+    fill_in :name, :with => 'username'
+    fill_in :password, :with => 'password'
+    click_button 'Log In'
+    expect(page).to have_content 'Logged in!'
   end
 end
 
 
 describe 'edit a user' do
-
   it 'edits a current user' do
-    test_user = FactoryGirl.create(:user)
-    visit edit_user_path(test_user)
-
+    user = FactoryGirl.create(:user)
+    sign_in
+    visit edit_user_path(user)
     fill_in :user_name, :with => "New Name"
     click_button "Update User"
     page.should have_content "User has been updated"
   end
 end
+
+
+
+
+
+
