@@ -2,6 +2,8 @@
 
 <%=render("/layouts/errors", :object => @user)%>
 
+
+
 <%= form_for(@user) do |f| %>
   <div class="form-group">
     <%= f.label :name, class: "col-md-1 control-label" %>
@@ -21,5 +23,9 @@
       <%= f.text_field :password_confirmation, class: "form-control"  %>
     </div>
   </div><br><br>
+  <%= f.label :avatar, 'Add Avatar' %>
+  <%= f.file_field :avatar %><br>
     <%= f.submit(:class => 'btn btn-primary') %>
-<% end %>
+<% end %><br>
+
+<hr>

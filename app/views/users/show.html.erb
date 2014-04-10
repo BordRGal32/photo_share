@@ -1,5 +1,6 @@
 <h1><%= @user.name %></h1>
 
+<%= image_tag @user.avatar.url %>
 
  <%= form_for(@user) do |f| %>
    <p>
