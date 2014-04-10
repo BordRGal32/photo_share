@@ -13,6 +13,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rghost'
 gem 'bcrypt'
 
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -24,6 +25,7 @@ group :test, :development do
   gem 'pry'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :test do
