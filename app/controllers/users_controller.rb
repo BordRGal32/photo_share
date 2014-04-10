@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_filter :authorize, only: [:update, :show, :edit, :destroy]
   def index
     @user = current_user
   end
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @photo = Photo.new
     @user = User.find(params[:id])
   end
 
