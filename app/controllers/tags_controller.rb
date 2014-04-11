@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   def index
+    @tags = Tag.all
   end
 
   def new
@@ -10,7 +11,7 @@ class TagsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def show
+  def destroy
   end
 
   def tags_parameters

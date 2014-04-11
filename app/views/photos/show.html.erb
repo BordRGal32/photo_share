@@ -1,6 +1,6 @@
 <h1><%= @photo.name %></h1>
 
-<%= image_tag @photo.image.url %>
+<%= image_tag @photo.image.url(:medium) %>
 
 <nav class="navbar navbar-fixed-buttom" role="navigation">
 
@@ -25,3 +25,10 @@
   <%= f.submit :class => "btn btn-warning" %>
 
 <% end %>
+
+
+
+
+
+
+
