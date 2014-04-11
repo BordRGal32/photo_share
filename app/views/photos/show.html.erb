@@ -9,3 +9,19 @@
                                                       {:confirm => "You sure?",
                                                        :method => "delete"} %>
 </nav>
+
+<% if @photo.tags.length > 0 %>
+  <h3>The following users are in this picture:</h3>
+  <% @photo.tags.each do |tag| %>
+    <%= link_to "#{tag.user.name}", user_path(tag.user) %>
+  <% end %>
+<% end %>
+<hr>
+
+<h2>Tag Your Friend</h2>
+<%=form_for @tag do |f| %>
+  <%= f.collection_select :user_id, User.all, :id, :name %>
+  <%= f.hidden_field :photo_id, :value => @photo.id %>
+  <%= f.submit :class => "btn btn-warning" %>
+
+<% end %>
